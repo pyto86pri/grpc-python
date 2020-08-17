@@ -8,7 +8,7 @@ codegen:
 		-I./pb/protos \
 		--python_out=./pb \
 		--grpc_python_out=./pb \
-		./pb/protos/helloworld.proto
+		./pb/protos/*.proto
 
 .PHONY: up
 up:
