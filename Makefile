@@ -13,3 +13,7 @@ codegen:
 .PHONY: up
 up:
 	poetry run python main.py
+
+.PHONY: aioup
+aioup:
+	poetry run python aio/main.py
