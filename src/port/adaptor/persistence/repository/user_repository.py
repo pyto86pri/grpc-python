@@ -7,7 +7,7 @@ from uuid import uuid4
 
 from domain.model.user.user_repository import IUserRepository
 from domain.model.user.user import UserId, User
-from port.adopter.persistence.db import Database
+from port.adaptor.persistence.db import Database
 
 
 class UserRepository(IUserRepository):
