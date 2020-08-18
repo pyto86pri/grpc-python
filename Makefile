@@ -12,8 +12,8 @@ codegen:
 
 .PHONY: up
 up:
-	poetry run python src/main.py
+	docker-compose up --build
 
-.PHONY: aioup
-aioup:
-	poetry run python src/aio/main.py
+.PHONY: down
+down:
+	docker-compose down
