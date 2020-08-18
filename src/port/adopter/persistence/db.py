@@ -45,7 +45,13 @@ class Database:
 
 class MySQLDatabase(Database):
     def __enter__(self) -> "MySQLDatabase":
-        self._cnx = mysql.connector.connect(**config["mysql"])
+        while True:
+            try:
+                self._cnx = mysql.connector.connect(**config["mysql"])
+            except Exception as e:
+                logger.error(e)
+            else:
+                break
         return self
 
     def __exit__(
