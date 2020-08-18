@@ -11,25 +11,28 @@ from pb.user_pb2_grpc import add_UserServiceServicer_to_server
 
 from app.greeter import GreeterServicer
 from app.user import UserServiceServicer
+from port.adopter.persistence.repository.user_repository import UserRepository
+from port.adopter.persistence.db import Database, MySQLDatabase
 
 
-def serve():
+def serve(db: Database) -> None:
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    add_GreeterServicer_to_server(
-        GreeterServicer(), server)
+    add_GreeterServicer_to_server(GreeterServicer(), server)  # type: ignore
     add_UserServiceServicer_to_server(
-        UserServiceServicer(), server)
+        UserServiceServicer(UserRepository(db)), server
+    )  # type: ignore
     SERVICE_NAMES = (
-        HELLOWORLD_DESCRIPTOR.services_by_name['Greeter'].full_name,
-        USER_DESCRIPTOR.services_by_name['UserService'].full_name,
+        HELLOWORLD_DESCRIPTOR.services_by_name["Greeter"].full_name,
+        USER_DESCRIPTOR.services_by_name["UserService"].full_name,
         reflection.SERVICE_NAME,
     )
     reflection.enable_server_reflection(SERVICE_NAMES, server)
-    server.add_insecure_port('[::]:50051')
+    server.add_insecure_port("[::]:50051")
     server.start()
     server.wait_for_termination()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     logging.basicConfig()
-    serve()
+    with MySQLDatabase() as db:
+        serve(db)
