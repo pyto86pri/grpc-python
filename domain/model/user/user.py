@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from typing import NewType
 
 
-UserId = NewType('UserId', str)
+UserId = NewType("UserId", str)
 
 
 @dataclass
