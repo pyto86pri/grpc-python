@@ -4,6 +4,6 @@ RUN pip install poetry
 RUN poetry config virtualenvs.in-project true
 COPY poetry.lock pyproject.toml ./
 RUN poetry install
-COPY . .
+COPY ./src .
 
 ENTRYPOINT ["poetry", "run", "python", "main.py"]
