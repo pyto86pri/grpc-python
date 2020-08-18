@@ -14,6 +14,10 @@ codegen:
 up:
 	docker-compose up --build
 
+.PHONY: watch
+watch:
+	watchexec --restart -w ./src "docker-compose up --build"
+
 .PHONY: down
 down:
 	docker-compose down
