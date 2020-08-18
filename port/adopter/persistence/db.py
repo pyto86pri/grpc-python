@@ -45,7 +45,7 @@ class Database:
 
 class MySQLDatabase(Database):
     def __enter__(self) -> "MySQLDatabase":
-        self._cnx = mysql.connector.connect(**config)
+        self._cnx = mysql.connector.connect(**config["mysql"])
         return self
 
     def __exit__(
