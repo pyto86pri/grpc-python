@@ -61,6 +61,14 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=3.5,<3.7.3 || >3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-black-multipy", "pytest-cov"]
 
 [[package]]
+category = "main"
+description = "Decorators for Humans"
+name = "decorator"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*"
+version = "4.4.2"
+
+[[package]]
 category = "dev"
 description = "the modular source code checker: pep8 pyflakes and co"
 name = "flake8"
@@ -144,21 +152,6 @@ python-versions = "*"
 version = "0.4.3"
 
 [[package]]
-category = "main"
-description = "MySQL driver written in Python"
-name = "mysql-connector-python"
-optional = false
-python-versions = "*"
-version = "8.0.21"
-
-[package.dependencies]
-protobuf = ">=3.0.0"
-
-[package.extras]
-compression = ["lz4 (>=2.1.6)"]
-dns-srv = ["dnspython (>=1.16.0)"]
-
-[[package]]
 category = "dev"
 description = "Utility library for gitignore style pattern matching of file paths."
 name = "pathspec"
@@ -179,6 +172,14 @@ setuptools = "*"
 six = ">=1.9"
 
 [[package]]
+category = "main"
+description = "library with cross-python path, ini-parsing, io, code, log facilities"
+name = "py"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "1.9.0"
+
+[[package]]
 category = "dev"
 description = "Python style guide checker"
 name = "pycodestyle"
@@ -195,12 +196,36 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "2.2.0"
 
 [[package]]
+category = "main"
+description = "Pure Python MySQL Driver"
+name = "pymysql"
+optional = false
+python-versions = "*"
+version = "0.10.0"
+
+[package.extras]
+ed25519 = ["PyNaCl (>=1.4.0)"]
+rsa = ["cryptography"]
+
+[[package]]
 category = "dev"
 description = "Alternative regular expression module, to replace re."
 name = "regex"
 optional = false
 python-versions = "*"
 version = "2020.7.14"
+
+[[package]]
+category = "main"
+description = "Easy to use retry decorator."
+name = "retry"
+optional = false
+python-versions = "*"
+version = "0.9.2"
+
+[package.dependencies]
+decorator = ">=3.4.2"
+py = ">=1.4.26,<2.0.0"
 
 [[package]]
 category = "main"
@@ -235,7 +260,7 @@ python-versions = "*"
 version = "3.7.4.2"
 
 [metadata]
-content-hash = "9dd2a62eadfb3d2571f8a6fa9806ccd116fcc9fdbc886f611f4895041296adac"
+content-hash = "71abc958e57ec114864cd9592bdb81fc08d651c48e55bba05f6e0da0193483b9"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -258,6 +283,10 @@ click = [
 configparser = [
     {file = "configparser-5.0.0-py3-none-any.whl", hash = "sha256:cffc044844040c7ce04e9acd1838b5f2e5fa3170182f6fda4d2ea8b0099dbadd"},
     {file = "configparser-5.0.0.tar.gz", hash = "sha256:2ca44140ee259b5e3d8aaf47c79c36a7ab0d5e94d70bd4105c03ede7a20ea5a1"},
+]
+decorator = [
+    {file = "decorator-4.4.2-py2.py3-none-any.whl", hash = "sha256:41fa54c2a0cc4ba648be4fd43cff00aedf5b9465c9bf18d64325bc225f08f760"},
+    {file = "decorator-4.4.2.tar.gz", hash = "sha256:e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"},
 ]
 flake8 = [
     {file = "flake8-3.8.3-py2.py3-none-any.whl", hash = "sha256:15e351d19611c887e482fb960eae4d44845013cc142d42896e9862f775d8cf5c"},
@@ -372,31 +401,6 @@ mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
     {file = "mypy_extensions-0.4.3.tar.gz", hash = "sha256:2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"},
 ]
-mysql-connector-python = [
-    {file = "mysql-connector-python-8.0.21.tar.gz", hash = "sha256:0eecec5ab1a4ba03741bee5ec3cb02a8647470ba4a5c50a14c49425db2ec3590"},
-    {file = "mysql_connector_python-8.0.21-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:86cfa8f05856db41394590b6d4d34d11e98f3550e7ef2a7add27a1a18c590968"},
-    {file = "mysql_connector_python-8.0.21-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:cb8818260a5731b0617c1da6960dc947e06d408ddd7ff387e102403c9b7ed90e"},
-    {file = "mysql_connector_python-8.0.21-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:7eef083bc90469d97b2f9ee1ec9a06c8332590bda80c7a6023c97678a19bc0ea"},
-    {file = "mysql_connector_python-8.0.21-cp27-cp27mu-manylinux1_i686.whl", hash = "sha256:83b8ca88bb99445cef7c0dca9c0e470c15fd72365a261dafa1da6f885bfb14fe"},
-    {file = "mysql_connector_python-8.0.21-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:00403ae0099248cba6076eb5454c8012c33fc011164fcaccd68b78c9298e3574"},
-    {file = "mysql_connector_python-8.0.21-cp35-cp35m-macosx_10_14_x86_64.whl", hash = "sha256:a6502199133fcefeb04ac91638a07b326ea3e7d8b8216da11eb2e763836eeee8"},
-    {file = "mysql_connector_python-8.0.21-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:322883e4850fa0064c9a60fcc11a8697cd691d9fa1b7e0a2c1b9eb673be1006a"},
-    {file = "mysql_connector_python-8.0.21-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:689245f055b81cfd5e2f19726e2ca7226022f685c5ec828a37e6c66d5a000281"},
-    {file = "mysql_connector_python-8.0.21-cp35-cp35m-win_amd64.whl", hash = "sha256:1ac799506b4fe5d44d31861c75299478125d855cbdc073de23a67bf3f468f265"},
-    {file = "mysql_connector_python-8.0.21-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:ecfa762cff5d3f7373494f74574df62fdd30f051e18bfe45bfa3d9713de5c759"},
-    {file = "mysql_connector_python-8.0.21-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:6e037712775209f2951da4be5be02720f18b7943b8a6f9a2a810e168c001af38"},
-    {file = "mysql_connector_python-8.0.21-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:ebd5df00417a1047a19e02643bbe1c7735a870384e1f21d96c97d98045925890"},
-    {file = "mysql_connector_python-8.0.21-cp36-cp36m-win_amd64.whl", hash = "sha256:14275f55706e225be0f0044f15fb9a9146c3015d81e12292dbfe8c830de4ee55"},
-    {file = "mysql_connector_python-8.0.21-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:6a2f237ced3468a37abe240a787717271bf576413a9fb36ef6f049e39f3a5b29"},
-    {file = "mysql_connector_python-8.0.21-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:07f6dea4b48b6afdbc952431a76c5e6fc1fa02d57e324670d5c4d73c54a981ff"},
-    {file = "mysql_connector_python-8.0.21-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:7a2294bc4b49b15fb0381cf4718ebe002d4c01d15bfc3f7a37cc2e03260611a6"},
-    {file = "mysql_connector_python-8.0.21-cp37-cp37m-win_amd64.whl", hash = "sha256:995661221a686676920f6e2b34dd7ac77992449ae860677dfab7e95bce87deec"},
-    {file = "mysql_connector_python-8.0.21-cp38-cp38-macosx_10_14_x86_64.whl", hash = "sha256:a1cbd47a2ffa919f69df34e52d090ee97442ef9bb0e0ae56045bbf72f14be26e"},
-    {file = "mysql_connector_python-8.0.21-cp38-cp38-manylinux1_i686.whl", hash = "sha256:e10975b4adfedd269b30cd5dc3a6bd683b4f53345b7e97e35b7a7281b9062547"},
-    {file = "mysql_connector_python-8.0.21-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:e9e0054fb273301a369065b30077f51966630388ac21c370e941215b479772f3"},
-    {file = "mysql_connector_python-8.0.21-cp38-cp38m-win_amd64.whl", hash = "sha256:2a467b290c2256277fbe4ddf1630a75f21d2a887b4c7bfe9c4afde86dae49848"},
-    {file = "mysql_connector_python-8.0.21-py2.py3-none-any.whl", hash = "sha256:97950141f4d902d5ba8590c2be8da481654b07eca1da74c6b5d0b43849fd7e33"},
-]
 pathspec = [
     {file = "pathspec-0.8.0-py2.py3-none-any.whl", hash = "sha256:7d91249d21749788d07a2d0f94147accd8f845507400749ea19c1ec9054a12b0"},
     {file = "pathspec-0.8.0.tar.gz", hash = "sha256:da45173eb3a6f2a5a487efba21f050af2b41948be6ab52b6a1e3ff22bb8b7061"},
@@ -421,6 +425,10 @@ protobuf = [
     {file = "protobuf-3.13.0-py2.py3-none-any.whl", hash = "sha256:d69697acac76d9f250ab745b46c725edf3e98ac24763990b24d58c16c642947a"},
     {file = "protobuf-3.13.0.tar.gz", hash = "sha256:6a82e0c8bb2bf58f606040cc5814e07715b2094caeba281e2e7d0b0e2e397db5"},
 ]
+py = [
+    {file = "py-1.9.0-py2.py3-none-any.whl", hash = "sha256:366389d1db726cd2fcfc79732e75410e5fe4d31db13692115529d34069a043c2"},
+    {file = "py-1.9.0.tar.gz", hash = "sha256:9ca6883ce56b4e8da7e79ac18787889fa5206c79dcc67fb065376cd2fe03f342"},
+]
 pycodestyle = [
     {file = "pycodestyle-2.6.0-py2.py3-none-any.whl", hash = "sha256:2295e7b2f6b5bd100585ebcb1f616591b652db8a741695b3d8f5d28bdc934367"},
     {file = "pycodestyle-2.6.0.tar.gz", hash = "sha256:c58a7d2815e0e8d7972bf1803331fb0152f867bd89adf8a01dfd55085434192e"},
@@ -428,6 +436,10 @@ pycodestyle = [
 pyflakes = [
     {file = "pyflakes-2.2.0-py2.py3-none-any.whl", hash = "sha256:0d94e0e05a19e57a99444b6ddcf9a6eb2e5c68d3ca1e98e90707af8152c90a92"},
     {file = "pyflakes-2.2.0.tar.gz", hash = "sha256:35b2d75ee967ea93b55750aa9edbbf72813e06a66ba54438df2cfac9e3c27fc8"},
+]
+pymysql = [
+    {file = "PyMySQL-0.10.0-py2.py3-none-any.whl", hash = "sha256:adef15ceccf1ff544a23a6f46609f65187261dc8b0cf94c9644189c173b0a451"},
+    {file = "PyMySQL-0.10.0.tar.gz", hash = "sha256:e14070bc84e050e0f80bf6063e31d276f03a0bb4d46b9eca2854566c4ae19837"},
 ]
 regex = [
     {file = "regex-2020.7.14-cp27-cp27m-win32.whl", hash = "sha256:e46d13f38cfcbb79bfdb2964b0fe12561fe633caf964a77a5f8d4e45fe5d2ef7"},
@@ -451,6 +463,10 @@ regex = [
     {file = "regex-2020.7.14-cp38-cp38-win32.whl", hash = "sha256:d6cff2276e502b86a25fd10c2a96973fdb45c7a977dca2138d661417f3728341"},
     {file = "regex-2020.7.14-cp38-cp38-win_amd64.whl", hash = "sha256:7a2dd66d2d4df34fa82c9dc85657c5e019b87932019947faece7983f2089a840"},
     {file = "regex-2020.7.14.tar.gz", hash = "sha256:3a3af27a8d23143c49a3420efe5b3f8cf1a48c6fc8bc6856b03f638abc1833bb"},
+]
+retry = [
+    {file = "retry-0.9.2-py2.py3-none-any.whl", hash = "sha256:ccddf89761fa2c726ab29391837d4327f819ea14d244c232a1d24c67a2f98606"},
+    {file = "retry-0.9.2.tar.gz", hash = "sha256:f8bfa8b99b69c4506d6f5bd3b0aabf77f98cdb17f3c9fc3f5ca820033336fba4"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
