@@ -12,7 +12,8 @@ from pb.user_pb2_grpc import add_UserServiceServicer_to_server
 from app.greeter import GreeterServicer
 from app.user import UserServiceServicer
 from port.adaptor.persistence.repository.user_repository import UserRepository
-from port.adaptor.persistence.db import Database, MySQLDatabase
+from port.adaptor.persistence.db import Database
+from port.adaptor.persistence.mysql import MySQLDatabase
 
 
 def serve(db: Database) -> None:
